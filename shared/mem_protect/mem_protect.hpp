@@ -12,7 +12,6 @@ namespace shared
 		/// <param name="flags">The new flags of the memory</param>
 		mem_protect_t( LPVOID address, uint32_t size, DWORD flags ) : m_address( address ), m_size( size ), m_flags( 0 )
 		{
-			
 			if(!VirtualProtect( m_address, m_size, flags, &m_flags ))
 			  throw std::system_error(GetLastError(), std::system_category(), "Failed to protect the specified page-region");
 		}
